@@ -1,48 +1,50 @@
-// Переопределение значения переменной
-// Для того, чтобы объявить переменную, 
-// которой в будущем можно будет присвоить 
-// новое значение, используется ключевое слово 
-// let. Создание переменной без ключевого слова let или const приведёт к ошибке.
+function filterArray(numbers, value) {
+    const filteredNumbers = [];
+    // Пиши код ниже этой строки
+   numbers.forEach(function(number) {
+  if (number > value) {
+        filteredNumbers.push(number);
+  }
+   });
+    
+  
+    // Пиши код выше этой строки
+    return filteredNumbers;
+  }
 
-// let age = 5;
-// age = 10;
 
-// let userName = 'Манго';
-// userName = 'Поли;
-// Попытка обратиться к переменной по имени до её объявления вызовет ошибку.
 
-// Например, нельзя пытаться прочитать или изменить значение переменой до ее объявления:
 
-// ❌ Неправильно, будет ошибка
-// age = 15;
- // ReferenceError: Cannot access 'age' before initialization
-// console.log(age); 
-// ReferenceError: age is not defined
 
-// Объявление переменной age
-// let age = 20;
+// function filterArray(numbers, value) {
+//     const filteredNumbers = [];
+//     // Пиши код ниже этой строки
+//  numbers.forEach(function(number) {
+//     number > value
+//   filteredNumbers.push(number)
+      
+//    });
+  
+//     // Пиши код выше этой строки
+//     return filteredNumbers;
+//   }
 
-// ✅ Правильно, обращаемся после объявления
-// age = 25;
-// console.log(age); // 25
 
+
+//   Задача. Фильтрация массива чисел
 // Задание
-// Имя товара изменили на 'Repair droid' и увеличили его 
-// цену на 1500 кредитов. Переопредели значения переменных 
-// pricePerItem и productName после их объявления.
+// Функция filterArray(numbers, value) принимает массив чисел numbers и возвращает 
+// новый массив, в котором будут только те элементы оригинального массива, которые 
+// больше чем значение параметра value.
+
+// Выполни рефакторинг функции так, чтобы вместо цикла for она использовала метод forEach.
 
 // Тесты
-// Переменная pricePerItem объявлена с помощью let.
-// При объявлении переменной pricePerItem присвоено значение число 2000.
-// Переменной pricePerItem присвоено новое значение, больше чем предыдущее на 1500.
-// Переменная productName объявлена с помощью let.
-// При объявлении переменной productName присвоено значение - строка 'Droid'.
-// Переменной productName присвоено новое значение - строка 'Repair droid'.
-
-// Start code
-let productName = 'Droid';
-let pricePerItem = 2000;
-
-// Write your code under this line
-productName = 'Repair droid';
-pricePerItem += 1500;
+// Объявлена функция filterArray(numbers, value).
+// Для перебора массива numbers использован метод forEach.
+// Вызов функции filterArray([1, 2, 3, 4, 5], 3) возвращает [4, 5].
+// Вызов функции filterArray([1, 2, 3, 4, 5], 4) возвращает [5].
+// Вызов функции filterArray([1, 2, 3, 4, 5], 5) возвращает [].
+// Вызов функции filterArray([12, 24, 8, 41, 76], 38) возвращает [41, 76].
+// Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
