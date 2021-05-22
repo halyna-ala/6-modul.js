@@ -1,69 +1,85 @@
-// Инструкция switch
-// В некоторых случаях неудобство чтения сложных ветвлений if...else можно избежать, используя более «плоский» синтаксис инструкции ветвления switch.
+const isEveryUserActive = (users) => {
+  return  users.every(user=>user.isActive)
+ };
 
-// Область применения switch ограничена задачами с одним общим вопросом (что сравнивать) и множеством вариантов ответов (с чем сравнивать).
 
-// switch (значение) {
-//   case значение:
-//     инструкции;
-//     break;
 
-//   case значение:
-//     инструкции;
-//     break;
-// }
-// Его синтаксис состоит из блока switch(значение) - что нужно сравнить и множества отдельных случаев case значение - с чем нужно сравнить. Для сравнения используется оператор строгого равенства ===. То есть нельзя сравнить на больше или меньше, только на равенство.
 
-// Значение в блоке switch(значение) - строка или число, которое сравнивается на строгое равенство со всеми значениями в блоках case значение по порядку, сверху вниз.
+//  Задача. Все ли пользователи активны
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
-// Оператор break в завершении каждого блока case необходим, чтобы прервать дальнейшие проверки и сразу перейти к коду за switch в том случае, когда проверка на равенство вернула true.
-
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female'
+//   }
+// ]
 // Задание
-// Функция getSubscriptionPrice(type) получает строку с типом подписки 
-// пользователя (параметр type), проверяет её на совпадение с тремя 
-// возможными типами ежемесячной подписки и возвращает цену хранящуюся в переменной price.
-
-// Если значение параметра type это строка:
-
-// 'starter' - цена подписки 0 кредитов.
-// 'professional' - цена подписки 20 кредитов.
-// 'organization' - цена подписки 50 кредитов.
-// Изначально в теле функции была инструкция if...else, которая выглядела вот так.
-
-// if (type === 'starter') {
-//   price = 0;
-// } else if (type === 'professional') {
-//   price = 20;
-// } else if (type === 'organization') {
-//   price = 50;
-// }
-// После рефакторинга инструкция if..else была заменена на switch. 
-// Дополни код инструкции switch, чтобы функция работала правильно.
+// Дополни функцию isEveryUserActive(users) так, чтобы она проверяла все ли пользователи 
+// сейчас активны (свойство isActive) и возвращала true или false.
 
 // Тесты
-// Объявлена функция getSubscriptionPrice(type).
-// Вызов getSubscriptionPrice('professional') возвращает число 20.
-// Вызов getSubscriptionPrice('organization') возвращает число 50.
-// Вызов getSubscriptionPrice('starter') возвращает число 0.
-
-function getSubscriptionPrice(type) {
-    let price;
-    // Пиши код ниже этой строки
-  
-   switch (type) { // Дополни эту строку
-      case 'starter': // Дополни эту строку
-        price = 0; // Дополни эту строку
-        break;
-  
-      case 'professional': // Дополни эту строку
-        price = 20; // Дополни эту строку
-        break;
-  
-      case 'organization': // Дополни эту строку
-        price = 50; // Дополни эту строку
-        break;
-    }
-  
-    // Пиши код выше этой строки
-    return price;
-  }
+// Объявлена переменная isEveryUserActive
+// Переменной isEveryUserActive присвоена стрелочная функция с параметром (users).
+// Для перебора параметра users используется метод every().
+// Вызов функции с указанным массивом пользователей возвращает false.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

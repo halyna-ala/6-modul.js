@@ -1,46 +1,94 @@
-// Логическое «НЕ» (оператор !)
-// Все операторы, которые мы рассматривали до этого, были бинарными. Т.е. они содержали два операнда: левый и правый. Логическое «НЕ» - это унарный оператор, выполняющий операцию над одним операндом справа.
+const getInactiveUsers = (users) => {
+  return  users.filter(user=>!user.isActive)
+ };
 
-// !выражение
-// Оператор ! приводит операнд к булю, если необходимо, а затем делает инверсию - заменяет его на противоположный true -> false или false -> true.
 
-// console.log(!true); // false
-// console.log(!false); // true
-// console.log(!3); // !3 -> !true -> false
-// console.log(!'Манго'); // !'Манго' -> !true -> false
-// console.log(!0); // !0 -> !false -> true
-// console.log(!''); // !'' -> !false -> true
 
-// const isOnline = true;
-// const isNotOnline = !isOnline; // !isOnline -> !true -> false
+
+//  Задача. Неактивные пользователи
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
+
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//     age: 27
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//     age: 38
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//     age: 39
+//   }
+// ]
 // Задание
-// Функция isNumberNotInRange(start, end, number) проверяет, не 
-// входит ли число в промежуток. То есть число должно быть меньше 
-// либо равно start и больше либо равно end. Результатом выражения 
-// проверки будет буль true или false.
-
-// Она объявляет три параметра, значения которых будут задаваться 
-// во время её вызова:
-
-// number - число, не вхождение которого проверяется
-// start - начало числового промежутка
-// end - конец числового промежутка
-// Присвой переменной isNotInRange выражение инверсии значения 
-// переменной isInRange используя оператор !.
+// Дополни функцию getInactiveUsers(users) так, чтобы она возвращала массив неактивных 
+// пользователей, значение свойства isActive которых false.
 
 // Тесты
-// Объявлена функция isNumberNotInRange(start, end, number).
-// В выражении использован оператор !.
-// Вызов isNumberNotInRange(10, 30, 17) возвращает false.
-// Вызов isNumberNotInRange(10, 30, 5) возвращает true.
-// Вызов isNumberNotInRange(20, 50, 24) возвращает false.
-// Вызов isNumberNotInRange(20, 50, 76) возвращает true.
+// -Объявлена переменная getInactiveUsers.
 
-
-
-function isNumberNotInRange(start, end, number) {
-    const isInRange = number >= start && number <= end;
-    const isNotInRange = !isInRange; // Дополни эту строку
-    
-    return isNotInRange;
-  }
+// Переменной getInactiveUsers присвоена стрелочная функция с параметром users.
+// Для перебора параметра users используется метод filter().
+// Вызов функции с указанным массивом пользователей возвращает массив объектов пользователей с
+//  именами Moore Hensley, Ross Vazquez и Blackburn Dotson.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

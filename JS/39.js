@@ -1,11 +1,20 @@
-const calculateTotalBalance = users => 
-  users.reduce((acc, user) => {
-  return acc + user.balance;
-  }, 0);
+const sortByDescendingFriendCount = users => 
+   [...users].sort((firstFriend, secondFriend) =>
+    secondFriend.friends.length - firstFriend.friends.length); 
 
 
 
-// Задача. Общий баланс пользователей
+// const sortByDescendingFriendCount = users => 
+//    [...users].sort((firstFriend, secondFriend) =>
+//              secondFriend.friends.localeCompare(firstFriend.friends)
+//                   ); 
+
+
+
+
+
+
+// Задача. Сортировка по количеству друзей
 // Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
 // [
@@ -74,12 +83,14 @@ const calculateTotalBalance = users =>
 //   }
 // ]
 // Задание
-// Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех 
-// средств (свойство balance) которые хранят пользователи из массива users.
+// Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей 
+// отсортированный по убыванию количества их друзей (свойство friends).
 
 // Тесты
-// Объявлена переменная calculateTotalBalance.
-// Переменной calculateTotalBalance присвоена стрелочная функция с параметром (users).
-// Для перебора параметра users используется метод reduce().
-// Вызов функции с указанным массивом пользователей возвращает число 20916.
+// Объявлена переменная sortByDescendingFriendCount.
+// Переменной sortByDescendingFriendCount присвоена стрелочная функция с параметром (users).
+// Значение параметра users не изменяется.
+// Для перебора параметра users использован метод sort().
+// Вызов функции с указанным массивом пользователей возвращает новый массив пользователей 
+// отсортированный по убыванию количества их друзей.
 // Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

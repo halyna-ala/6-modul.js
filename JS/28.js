@@ -1,62 +1,74 @@
-// Инструкция switch c блоком default
-// Если ни одного совпадения значений не произошло, необходимо 
-// выполнить код по умолчанию, как в блоке else для инструкции 
-// if...else. Для этого после всех блоков case добавляется блок default.
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// Пиши код ниже этой строки
 
-// switch (значение) {
-//   case значение:
-//     инструкции;
-//     break;
+const anyElementInFirstIsEven = firstArray.some(element => element%2===0);
+const anyElementInFirstIsOdd = firstArray.some(element => !(element%2===0));
 
-//   case значение:
-//     инструкции;
-//     break;
+const anyElementInSecondIsEven = secondArray.some(element => element%2===0);
+const anyElementInSecondIsOdd = secondArray.some(element => !element%2===0);
 
-//   default:
-//     инструкции;
-// }
-// Оператор break после блока default не нужен, так как это и так 
-// последнее что будет выполнено в switch и управление будет передано коду за ним.
+const anyElementInThirdIsEven = thirdArray.some(element => element%2===0);
+const anyElementInThirdIsOdd = thirdArray.some(element => !element%2===0);
 
+
+
+// Метод some()
+// Метод some(callback) проверяет проходит ли хотя бы один элемент массива тест предоставляемый 
+// коллбек-функцией. Возвращает true или false.
+
+// массив.some((element, index, array) => {
+//   // Тело коллбек-функции
+// });
+// Не изменяет оригинальный массив.
+// Поэлементно перебирает оригинальный массив.
+// Возвращает true если хотя бы один элемент массива удовлетворяет условию.
+// Возвращает false если ни один элемент массив не удовлетворяет условию.
+// Перебор массива прекращается если коллбек возвращает true.
+// // Есть хотя бы один элемент больше либо равный нулю? - да
+// [1, 2, 3, 4, 5].some(value => value >= 0); // true
+
+// // Есть хотя бы один элемент больше либо равный нулю? - да
+// [-7, -20, 3, -10, -14].some(value => value >= 0); // true
+
+// // Есть хотя бы один элемент меньше нуля? - нет
+// [1, 2, 3, 4, 5].some(value => value < 0); // false
+
+// // Есть хотя бы один элемент меньше нуля? - да
+// [1, 2, 3, -10, 4, 5].some(value => value < 0); // true
 // Задание
-// Функция checkPassword(password) получает пароль в параметр password, 
-// проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD 
-// и возвращает сообщение о результате сравнения, хранящееся в переменной message.
+// Используя метод some() дополни код так, чтобы:
 
-// Если значение параметра password:
-
-// равно null, значит пользователь отменил операцию и в message записывается строка 
-// 'Отменено пользователем!'.
-// совпадает со значением ADMIN_PASSWORD, в переменную message присваивается строка 
-// 'Добро пожаловать!'.
-// не удобвлетворяет ни одному из предыдущих условий, в переменную message 
-// записывается строка 'Доступ запрещен, неверный пароль!'.
-// Проведи рефакторинг кода, заменив инструкцию if..else на switch, и не 
-// забудь о блоке default (аналог else).
-
+// В переменной anyElementInFirstIsEven был результат проверки наличия чётных элементов в 
+// массиве firstArray.
+// В переменной anyElementInFirstIsOdd был результат проверки наличия нечётных элементов в
+//  массиве firstArray.
+// В переменной anyElementInSecondIsEven был результат проверки наличия чётных элементов в 
+// массиве secondArray.
+// В переменной anyElementInSecondIsOdd был результат проверки наличия нечётных элементов 
+//  массиве secondArray.
+// В переменной anyElementInThirdIsEven был результат проверки наличия чётных элементов 
+// в массиве thirdArray.
+// В переменной anyElementInThirdIsOdd был результат проверки наличия нечётных элементов в 
+// массиве thirdArray.
 // Тесты
-// Объявлена функция checkPassword(password).
-// Вызов checkPassword('mangohackzor') возвращает 'Доступ запрещен, неверный пароль!'.
-// Вызов checkPassword(null) возвращает 'Отменено пользователем!'.
-// Вызов checkPassword('polyhax') возвращает 'Доступ запрещен, неверный пароль!'.
-// Вызов checkPassword('jqueryismyjam') возвращает 'Добро пожаловать!'.
-
-
-function checkPassword(password) {
-    const ADMIN_PASSWORD = 'jqueryismyjam';
-    let message;
-  
-    switch (password){
-    case null:
-    message = 'Отменено пользователем!';
-    break;
-    
-    case ADMIN_PASSWORD:
-    message = 'Добро пожаловать!';
-    break;
-    
-    default:
-    message = 'Доступ запрещен, неверный пароль!';
-  }
-    return message;
-  }
+// Объявлена переменная firstArray.
+// Значение переменной firstArray это массив [26, 94, 36, 18].
+// Объявлена переменная secondArray.
+// Значение переменной secondArray это массив [17, 61, 23].
+// Объявлена переменная thirdArray.
+// Значение переменной thirdArray это массив [17, 26, 94, 61, 36, 23, 18].
+// Объявлена переменная anyElementInFirstIsEven.
+// Значение переменной anyElementInFirstIsEven это буль true.
+// Объявлена переменная anyElementInFirstIsOdd.
+// Значение переменной anyElementInFirstIsOdd это буль false.
+// Объявлена переменная anyElementInSecondIsEven.
+// Значение переменной anyElementInSecondIsEven это буль false.
+// Объявлена переменная anyElementInSecondIsOdd.
+// Значение переменной anyElementInSecondIsOdd это буль true.
+// Объявлена переменная anyElementInThirdIsEven.
+// Значение переменной anyElementInThirdIsEven это буль true.
+// Объявлена переменная anyElementInThirdIsOdd.
+// Значение переменной anyElementInThirdIsOdd это буль true.
+// Для перебора массивов использован метод some().

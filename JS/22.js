@@ -1,57 +1,92 @@
-// Логическое «ИЛИ» (оператор ||)
-// Оператор || приводит все операнды к булю и возвращает 
-// значение одного из них. Левый операнд, если его можно 
-// привести к true, и правый в остальных случаях.
+const getActiveUsers = (users) => 
+ users.filter(({isActive})=> isActive);
 
-// выражение || выражение
-// В следующем примере условие слева вернёт true, поэтому 
-// результатом всего выражения будет true - вернётся значение 
-// первого операнда, которое было приведено к true.
 
-// const age = 5;
-// console.log(age < 10 || age > 30); // true || false -> true
-// Тут результатом тоже будет true, так как хотя бы один из 
-// операндов, в этом случае правый, был приведён к true.
 
-// const age = 40;
-// console.log(age < 10 || age > 30); // false || true -> true
-// А здесь ни одно из условий не выполняется, поэтому получаем 
-// false - значение последнего операнда.
 
-// const age = 20;
-// console.log(age < 10 || age > 30); // false || false -> false
-// То есть логическое «ИЛИ» запинается на правде и возвращает 
-// то, на чём запнулось или последний операнд.
+//  Задача. Активные пользователи
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
-// console.log(true || false); // true
-// console.log(false || true); // true
-// console.log(true || true); // true
-
-// console.log(3 || false); // 3
-// console.log(false || 3); // 3
-// console.log(3 || true); // 3
-// console.log(true || 3); // true
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//     age: 27
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//     age: 38
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//     age: 39
+//   }
+// ]
 // Задание
-// Функция checkIfCanAccessContent(subType) проверяет, может 
-// ли пользователь получить доступ к контенту. Проверка происходит 
-// по типу подписки. Получить доступ могут только пользователи с подпиской pro или vip.
-
-// Присвой переменной canAccessContent выражение проверки подписки. 
-// Если значение параметра subType равно строкам 'pro' или 'vip', 
-// пользователь получит доступ. Результатом выражения проверки будет буль true или false.
+// Дополни функцию getActiveUsers(users) так, чтобы она возвращала массив активных
+//  пользователей, значение свойства isActive которых true.
 
 // Тесты
-// Объявлена функция checkIfCanAccessContent(subType).
-// В выражении проверки использован оператор ||.
-// Вызов checkIfCanAccessContent('pro') возвращает true.
-// Вызов checkIfCanAccessContent('starter') возвращает false.
-// Вызов checkIfCanAccessContent('vip') возвращает true.
-// Вызов checkIfCanAccessContent('free') возвращает false.
-
-
-
-function checkIfCanAccessContent(subType) {
-    const canAccessContent = subType === 'pro' || subType === 'vip' ; // дополни эту строку
-    
-      return canAccessContent;
-    }
+// Объявлена переменная getActiveUsers. Переменной getActiveUsers присвоена стрелочная 
+// функция с параметром users.
+// Для перебора параметра users используется метод filter().
+// Вызов функции с указанным массивом пользователей возвращает массив объектов пользователей
+//  с именами Sharlene Bush, Elma Head, Carey Barr и Sheree Anthony.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

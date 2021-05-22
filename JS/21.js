@@ -1,73 +1,106 @@
-// Логическое «И» (оператор &&)
-// Логические операторы используются для проверки условий с
-//  множественными выражениями, например в ветвлениях.
+const getFriends = (users) => {
+  const allFriends = users.flatMap(user => user.friends);
+  const uniqueFriends = allFriends.filter((friend, index, array) => array.indexOf(friend) === index);
+                                          return uniqueFriends;
+  };
 
-// Оператор && приводит все операнды к булю и возвращает
-//  значение одного из них. Левый операнд, если его можно 
-//  привести к false, и правый в остальных случаях.
 
-// выражение && выражение
-// В следующем примере оба условия вернут true, поэтому
-//  результатом всего выражения будет true - вернётся значение
-//  правого операнда.
 
-// const age = 20;
-// console.log(age > 10 && age < 30); // true && true -> true
-// Если хотя бы один из операндов будет приведён к false, 
-// результатом выражения будет этот операнд.
+// const getFriends = (users) => users.fletMap(user=>user.friends);
+//   const uniceFriends = getFriends.filter((friend, index, array)=>array.indexOf(friend)===index);
 
-// const age = 50;
-// console.log(age > 10 && age < 30); // true && false -> false
-// console.log(age > 80 && age < 120); // false && true -> false
-// То есть логическое «И» запинается на лжи и возвращает то, на 
-// чём запнулось или последний операнд.
 
-// console.log(true && false); // false
-// console.log(false && true); // false
-// console.log(true && true); // true
 
-// console.log(3 && false); // false
-// console.log(false && 3); // false
-// console.log(3 && true); // true
-// console.log(true && 3); // 3
-// Полезно
-// Запомните шесть значений, которые в булевом преобразовании 
-// приводятся к `false`: `0`, `NaN`, `null`, `undefined`, 
-// пустая строка `""` или `''` и само значение `false`. 
-// Абсолютно всё остальное приводится к `true`.
 
-// console.log(1 && 5); // true && true -> 5
-// console.log(5 && 1); // true && true -> 1
-// console.log(0 && 2); // false && true -> 0
-// console.log(2 && 0); // true && false -> 0
-// console.log('' && 'Манго'); // false && true -> ''
-// console.log('Манго' && ''); // true && false -> ''
-// console.log('Манго' && 'Поли'); // true && true -> 'Поли'
-// console.log('Поли' && 'Манго'); // true && true -> 'Манго'
+
+// const getFriends = (users) => (users.fletMap(user=>user.friends));
+// const uniqueFriends = getFriends.filter((friend, index, array) => {
+//   return array.indexOf(friend) ===index;
+// });
+
+
+
+
+// Задача. Список друзей
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
+
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//     age: 27
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//     age: 38
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//     age: 39
+//   }
+// ]
 // Задание
-// Функция isNumberInRange(start, end, number) проверяет,
-//  входит ли число в промежуток. Она объявляет три параметра,
-//  значения которых будут задаваться во время её вызова:
-
-// number - число, вхождение которого проверяется
-// start - начало числового промежутка
-// end - конец числового промежутка
-// Присвой переменной isInRange выражение проверки вхождения 
-// number в числовой промеждуток от srart до end. То есть число 
-// должно быть больше либо равно start и меньше либо равно end.
-//  Результатом выражения проверки будет буль true или false.
+// Дополни функцию getFriends(users) так, чтобы она возвращала массив друзей всех пользователей (свойство friends). У нескольких пользователей могут быть одинаковые друзья, сделай так чтобы возвращаемый массив не содержал повторений.
 
 // Тесты
-// Объявлена функция isNumberInRange(start, end, number).
-// В выражении проверки использован оператор &&.
-// Вызов isNumberInRange(10, 30, 17) возвращает true.
-// Вызов isNumberInRange(10, 30, 5) возвращает false.
-// Вызов isNumberInRange(20, 50, 24) возвращает true.
-// Вызов isNumberInRange(20, 50, 76) возвращает false.
-
-
-function isNumberInRange(start, end, number) {
-    const isInRange = start <= number && number <= end; // дополни эту строку
-  
-    return isInRange;
-  }
+// Объявлена переменная getFriends.
+// Переменной getFriends присвоена стрелочная функция с параметром (users).
+// Вызов функции с указанным массивом пользователей возвращает массив ['Sharron Pace', 'Briana Decker', 'Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner', 'Goldie Gentry', 'Aisha Tran', 'Jordan Sampson', 'Eddie Strong', 'Jacklyn Lucas', 'Linda Chapman'].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

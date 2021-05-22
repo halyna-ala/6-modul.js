@@ -1,39 +1,52 @@
-// Метод includes()
-// Метод строк includes(substring) проверяет входит ли подстрока 
-// substring в строку, возвращает буль - true если входит и false 
-// в противном случае. Регистр символов в строке и подстроке имеет 
-// значение, так как например буква 'a' не равна букве 'А'.
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// Пиши код ниже этой строки
 
-// const productName = 'Ремонтный дроид';
+const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+console.log(ascendingReleaseDates);
+const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
+console.log(descendingReleaseDates);
 
-// console.log(productName.includes('н')); // true
-// console.log(productName.includes('Н')); // false
-// console.log(productName.includes('дроид')); // true
-// console.log(productName.includes('Дроид')); // false
-// console.log(productName.includes('Ремонтный')); // true
-// console.log(productName.includes('ремонтный')); // false
+
+
+
+
+// Свой порядок сортировки чисел
+// Для указания своего порядка сортировки методу sort(callback) нужно передать коллбек-функцию 
+// с двумя параметрами. Это функция сравнения (compare function), порядок сортировки зависит от
+//  её результата. Метод sort() будет вызывать её для произвольных двух элементов.
+
+// массив.sort((firstEl, secondEl) => {
+//   // Тело коллбек-функции
+// });
+// firstEl - первый элемент для сравнения.
+// secondEl - второй элемент для сравнения.
+// Если вызов compareFunction(firstEl, secondEl) возвращает любое отрицательное значение, 
+// сортировка поставит firstEl перед secondEl. Это сортировка по возрастанию.
+
+// const scores = [61, 19, 74, 35, 92, 56];
+// const ascendingScores = [...scores].sort((a, b) => a - b);
+// console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
+// Если вызов compareFunction(firstEl, secondEl) возвращает любое положительное значение больше
+//  нуля, сортировка поставит secondEl перед firstEl. Это сортировка по убыванию.
+
+// const scores = [61, 19, 74, 35, 92, 56];
+// const descendingScores = [...scores].sort((a, b) => b - a);
+// console.log(descendingScores); // [92, 74, 61, 56, 35, 19]
+// Eсли вызов compareFunction(firstEl, secondEl) вернёт 0, сортировка оставит firstEl и secondEl 
+// неизменными по отношению друг к другу, но отсортирует их по отношению ко всем другим элементам. 
+// Но вообще не важно, что возвращать, если их взаимный порядок не имеет значения.
+
 // Задание
-// Функция checkName(fullname, name) принимает два параметра и возвращает 
-// буль true или false - результат проверки вхождения подстроки name в строку fullname.
-
-// fullname - полное имя состоящее из двух слов (имени и фамилии) разделённых пробелом.
-// name - имя для проверки вхождения в полное имя.
-// Присвой переменной result выражение проверки вхождения имени (параметр name),
-//  в полное имя (параметр fullname). Пусть функция строго относится к регистру букв,
-//   то есть «Петя» и «петя» для неё разные имена.
+// Онлайн бибилиотеке необходимо отображать книги сортированные по дате издания, по её возрастанию 
+// или убыванию. Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная
+//  по возрастанию копия массива releaseDates, а в переменной descendingReleaseDates копия 
+//  отсортированная по убыванию.
 
 // Тесты
-// Объявлена функция checkForName(fullname, name).
-// Вызов функции checkForName('Егор Колбасов', 'Егор') возвращает true.
-// Вызов функции checkForName('Егор Колбасов', 'егор') возвращает false.
-// Вызов функции checkForName('Егор Колбасов', 'егОр') возвращает false.
-// Вызов функции checkForName('Егор Колбасов', 'Женя') возвращает false.
-// Вызов функции checkForName('Вадим Некрасов', 'Вадим') возвращает true.
-// Вызов функции checkForName('Вадим Некрасов', 'вадим') возвращает false.
-// Вызов функции checkForName('Вадим Некрасов', 'Дима') возвращает false.
-
-
-function checkForName(fullName, name) {
-    const result = fullName.includes(name); // Дополни эту строку
-     return result;
-   }
+// Объявлена переменная releaseDates.
+// Значение переменной releaseDates это массив [2016, 1967, 2008, 1984, 1973, 2012, 1997].
+// Объявлена переменная ascendingReleaseDates.
+// Значение переменной ascendingReleaseDates это массив [1967, 1973, 1984, 1997, 2008, 2012, 2016].
+// Объявлена переменная descendingReleaseDates.
+// Значение переменной descendingReleaseDates это массив [2016, 2012, 2008, 1997, 1984, 1973, 1967].
+// Использован метод sort().

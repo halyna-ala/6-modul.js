@@ -1,55 +1,94 @@
-// Тернарный оператор
-// Тернарный оператор используется как более синтаксически краткая
-//  замена инструкции if...else, когда одной и той же переменной 
-//  необходимо присвоить разные значения по условию.
+const getUserWithEmail = (users, email) => 
+   users.find(user=> user.email===email);
 
-// <условие> ? <выражение если условие истинно> : <выражение если условие ложно>
-// Работает по такой схеме:
 
-// Вычисляется условие.
-// Если условие истинно, то есть приводится к true, вычисляется выражение после ?.
-// Если условие ложно, то есть приводится к false, вычисляется выражение после :.
-// Значение вычисленного выражения возвращается как результат работы тернарного оператора.
-// let type;
-// const age = 20;
 
-// if (age >= 18) {
-//   type = 'adult';
-// } else {
-//   type = 'child';
-// }
+// Задача. Пользователь с почтой
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
-// console.log(type); // 'adult'
-// Выполним рефакторинг, заменив if...else тернарным оператором.
-
-// const age = 20;
-// const type = age >= 18 ? 'adult' : 'child';
-// console.log(type); // 'adult'
-// Внимание
-// Тернарный оператор должен использоваться в простых операциях 
-// присваивания или возврата. Применять его для замены сложных ветвлений — плохая
-//  практика (антипаттерн).
-
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female'
+//   }
+// ]
 // Задание
-// Выполни рефакторинг решения задачи «Склад товаров», заменив 
-// инструкцию if...else тернарным оператором.
+// Дополни функцию getUserWithEmail(users, email) так, чтобы она возвращала объект пользователя,
+//  почта которого (свойство email) совпадает со значением параметра email.
 
 // Тесты
-// Объявлена функция checkStorage(available, ordered).
-// Использован тернарный оператор.
-// Вызов checkStorage(100, 50) возвращает 'Заказ оформлен, с вами свяжется менеджер'.
-// Вызов checkStorage(100, 130) возвращает 'На складе недостаточно товаров!'.
-// Вызов checkStorage(200, 20) возвращает 'Заказ оформлен, с вами свяжется менеджер'.
-// Вызов checkStorage(200, 150) возвращает 'Заказ оформлен, с вами свяжется менеджер'.
-// Вызов checkStorage(150, 180) возвращает 'На складе недостаточно товаров!'.
+// Объявлена функция getUserWithEmail(users, email).
 
+// Для перебора параметра users используется метод find().
 
-function checkStorage(available, ordered) {
-    let message;
-    // Пиши код ниже этой строки
-  
-    message = ordered>available?'На складе недостаточно товаров!':'Заказ оформлен, с вами свяжется менеджер';
-  
-    // Пиши код выше этой строки
-    return message;
-  }
+// Если значение параметра email это 'shereeanthony@kog.com', функция возвращает объект пользователя
+//  с именем Sheree Anthony.
+
+// Если значение параметра email это 'elmahead@omatom.com', функция возвращает объект пользователя
+//  с именем Elma Head.
+
+// Если значение параметра email это 'blackburndotson@furnigeer.com', функция возвращает объект 
+// пользователя с именем Blackburn Dotson.
+
+// Если в массиве users нет пользователя с почтой из параметра email, функция возвращает undefined.
+
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

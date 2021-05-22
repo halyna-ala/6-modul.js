@@ -1,90 +1,83 @@
-Задача: доставка товара
-Задание
-Функция getShippingCost(country) должна проверять возможность доставки товара в страну пользователя (параметр country) и возвращать сообщение о результате хранящееся в переменной message. Обязательно используй инструкцию switch.
-
-Формат возвращаемой строки Доставка в <страна> будет стоить <цена> кредитов, где вместо <страна> и <цена> необходимо подставить соотвествующие значения.
-
-Список стран и стоимость доставки:
-
-Китай - 100 кредитов
-Чили - 250 кредитов
-Австралия - 170 кредитов
-Ямайка - 120 кредитов
-Из списка видно, что доставка есть не везде. Если указанной 
-страны нет в списке, то функция должна вернуть строку 'Извините, 
-в вашу страну доставки нет'
-
-Тесты
-Объявлена функция getShippingCost(country).
-В теле функции использована инструкция switch.
-Вызов getShippingCost('Австралия') возвращает 'Доставка в Австралия 
-будет стоить 170 кредитов'.
-Вызов getShippingCost('Германия') возвращает 'Извините, в вашу страну доставки нет'.
-Вызов getShippingCost('Китай') возвращает 'Доставка в Китай будет стоить 100 кредитов'.
-Вызов getShippingCost('Чили') возвращает 'Доставка в Чили будет стоить 250 кредитов'.
-Вызов getShippingCost('Ямайка') возвращает 'Доставка в Ямайка будет стоить 120 кредитов'.
-Вызов getShippingCost('Швеция') возвращает 'Извините, в вашу страну доставки нет'.
-  
-
-    // function getShippingCost(country) {
-    //     let message;
-    //     let prace;
-    //     // Пиши код ниже этой строки
-        
-    //     switch (country) {
-    //         case 'Китай':
-    //             prace = 100;
-    //             break;
-                
-    //             case 'Чили':
-    //                 prace = 250;
-    //                 break;
-                    
-    //                 case 'Австралия':
-    //                     prace = 170;
-    //                     break;
-                        
-    //                     case 'Ямайка':
-    //                         prace = 120;
-    //                         break;
-                            
-    //                         default:
-    //                             message = 'Извините, в вашу страну доставки нет';
-    //                         }
-    //                         // message = `Доставка в ${case} будет стоить ${prace} кредитов`;
-    //     console.log(message);
-    //     // Пиши код выше этой строки
-    //     return message;
-    //   }
+const isAnyUserActive = users => {
+  return users.some(user=>user.isActive)
+ };
 
 
-    function getShippingCost(country) {
-        let message ;
-        let prace;
-        // Пиши код ниже этой строки
-        
-      switch (country) {
-        case 'Китай':
-          prace = 100;
-            break;
-          
-          case 'Чили':
-          prace = 250;
-            break;
-          
-        case 'Австралия':
-          prace = 170;
-            break;
-          
-        case 'Ямайка':
-          prace = 120;
-            break;
-          
-        default:
-         return 'Извините, в вашу страну доставки нет';
-      }
-        message = `Доставка в ${country} будет стоить ${prace} кредитов`;
-        console.log(message);
-        // Пиши код выше этой строки
-        return message;
-      }
+
+//  Задача. Есть ли активные пользователи
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
+
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female'
+//   }
+// ]
+// Задание
+// Дополни функцию isAnyUserActive(users) так, чтобы она проверяла наличие активных пользователей 
+// (свойство isActive) и возвращала true или false.
+
+// Тесты
+// Объявлена функция isAnyUserActive(users).
+// Для перебора параметра users используется метод some().
+// Вызов функции с указанным массивом пользователей возвращает true.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.

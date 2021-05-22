@@ -1,72 +1,96 @@
-// Блок else...if
-// Конструкция if...else может проверить и среагировать на выполнение или 
-// невыполнение только одного условия.
-
-// let cost;
-// const subscription = 'pro';
-
-// if (subscription === 'pro') {
-//   cost = 100;
-// } else {
-//   cost = 0;
-// }
-
-// console.log(cost); // 100
-// Блок else...if позволяет добавить после else еще один оператор if с условием. 
-// В конце цепочки может быть классический блок else, который выполнится только 
-// в случае, когда ни одно из условий не приведётся к true.
-
-// let cost;
-// const subscription = 'premium';
-
-// if (subscription === 'free') {
-//   cost = 0;
-// } else if (subscription === 'pro') {
-//   cost = 100;
-// } else if (subscription === 'premium') {
-//   cost = 500;
-// } else {
-//   console.log(`Невалидный тип подписки ${subscription}`);
-// }
-
-// console.log(cost); // 500
-// При первом же удовлетворяющем условии проверки прекратятся и выполнится 
-// только тело соответствующего блока if. Поэтому подобную запись следует читать как:
-//  «ищу первое выполнение условия, игнорирую всё остальное».
+const getUsersWithAge = (users, minAge, maxAge) => 
+ users.filter(user=> user.age > minAge  && user.age < maxAge);
 
 
+
+// Задача. Пользователи в возрастной категории
+// Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
+
+// [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//     age: 27
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//     age: 38
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//     age: 39
+//   }
+// ]
 // Задание
-// Функция checkPassword(password) получает пароль пользователя в параметр password,
-//  проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD 
-//  и возвращает сообщение о результате сравнения, хранящееся в переменной message.
-
-// Если значение параметра password равно null, значит пользователь отменил операцию 
-// и в message записывается строка 'Отменено пользователем!'.
-// Если значение параметра password совпадает со значением ADMIN_PASSWORD, в 
-// переменную message присваивается строка 'Добро пожаловать!'.
-// Если ни одно из предыдущих условий не выполнилось, в переменную message
-//  записывается строка 'Доступ запрещен, неверный пароль!'.
-
+// Дополни функцию getUsersWithAge(users, minAge, maxAge) так, чтобы она возвращала массив
+//  пользователей, возраст которых (свойство age) попадает в промежуток от minAge до maxAge.
 
 // Тесты
-// Объявлена функция checkPassword(password).
-// Вызов checkPassword('mangohackzor') возвращает 'Доступ запрещен, неверный пароль!'.
-// Вызов checkPassword(null) возвращает 'Отменено пользователем!'.
-// Вызов checkPassword('polyhax') возвращает 'Доступ запрещен, неверный пароль!'.
-// Вызов checkPassword('jqueryismyjam') возвращает 'Добро пожаловать!'.
-
-
-function checkPassword(password) {
-    const ADMIN_PASSWORD = 'jqueryismyjam';
-    let message;
-  
-    if (password === null) { // Дополни эту строку
-      message =  'Отменено пользователем!';
-    } else if (password === ADMIN_PASSWORD) { // Дополни эту строку
-      message = 'Добро пожаловать!';
-    } else {
-      message = 'Доступ запрещен, неверный пароль!';
-    }
-  
-    return message;
-  }
+// Объявлена переменная getUsersWithAge.
+// Переменной getUsersWithAge присвоена стрелочная функция с параметрами (users, minAge, maxAge).
+// Для перебора параметра users используется метод filter().
+// Если значение параметров minAge и maxAge равны 20 и 30 соотвественно, функция 
+// возвращает массив объектов пользователей с именами Ross Vazquez, Elma Head и Carey Barr.
+// Если значение параметров minAge и maxAge равны 30 и 40 соотвественно, функция 
+// возвращает массив объектов пользователей с именами Moore Hensley, Sharlene Bush, 
+// Blackburn Dotson, Sheree Anthony.
+// Если значение параметров minAge и maxAge равны 80 и 100 соотвественно, функция 
+// возвращает пустой массив.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
